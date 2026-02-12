@@ -1,0 +1,115 @@
+.App {
+  text-align: center;
+  background: linear-gradient(to bottom,
+      #f8c8dc 0%,
+      /* baby pink */
+      #fde9f2 50%,
+      /* very light pink */
+      #ffffff 100%
+      /* white at bottom */
+    );
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+
+
+/* Container for all floating hearts */
+.hearts-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  overflow: visible;
+  pointer-events: none;
+  /* Allows clicking through to buttons */
+  z-index: 999;
+}
+
+/* Individual heart style */
+.floating-heart {
+  position: absolute;
+  bottom: 0;
+  color: #b4143c;
+  /* Matches your Yes button pink-red */
+  font-size: 1.5rem;
+  user-select: none;
+  animation: floatUp 4s linear infinite;
+  opacity: 0;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-100vh) translateX(20px);
+    opacity: 0;
+  }
+}
+
+
+.falling-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.spring-ribbon {
+  position: absolute;
+  top: -100px;
+  /* Start above screen */
+  width: 2px;
+  height: 30px;
+  /* This creates the "twisted" spring look */
+  border-left: 4px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50% 10% 50% 10%;
+
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fallAndTwist 5s linear infinite;
+}
+
+@keyframes fallAndTwist {
+  0% {
+    transform: translateY(0) rotateY(0deg) rotateZ(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    /* Falling to 110vh ensures it "disappears" past the bottom edge */
+    transform: translateY(110vh) rotateY(1440deg) rotateZ(45deg);
+    opacity: 0.8;
+  }
+}
+
+/* Glossy Shine Overlay */
+.spring-ribbon::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(transparent, rgba(255, 255, 255, 0.6), transparent);
+  top: 0;
+  left: 0;
+}

@@ -1,0 +1,58 @@
+.welcome-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome-card {
+    width: 65vw;
+    height: 50vh;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome-card h1 {
+    margin: 0;
+    color: black;
+    font-size: 2.2rem;
+}
+
+
+.heart-icon {
+    color: plum;
+}
+
+.hint {
+    text-align: center;
+    font-size: medium;
+    color: black;
+}
+
+.button-box {
+    position: relative;
+    height: 200px;
+    /* Give it enough space to move around */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Just to see the boundary */
+}
+
+.shade {
+    background-color: 'rgba(180, 20, 60, 0.4)',
+
+
+}
+
+.btn-no {
+    padding: 10px 20px;
+    cursor: pointer;
+    color: white;
+}
